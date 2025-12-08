@@ -3,6 +3,7 @@
 namespace App\Contracts;
 
 use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 
 interface ContactRepository
 {
@@ -12,4 +13,12 @@ interface ContactRepository
      * @return bool
      */
     public function createContact(ContactRequest $request): bool;
+
+    /**
+     * Get all contacts.
+     * @param array $fields
+     * Get all contacts.
+     * @return array
+     */
+    public function getAll(array $fields = ['*']): array;
 }
