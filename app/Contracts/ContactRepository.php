@@ -21,4 +21,11 @@ interface ContactRepository
      * @return array
      */
     public function getAll(array $fields = ['*']): array;
+
+    /**
+     * Get contact by ID.
+     * @param int $id
+     * @return Contact|null
+     */
+    public function getById(int $id): ?Contact;
 }

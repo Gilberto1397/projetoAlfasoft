@@ -21,6 +21,6 @@ Route::controller(ContactController::class)->group(function () {
             Route::post('', 'createContact')->name('contact.create');
         });
         Route::get('', 'getAll')->name('contact.getall');
-        Route::get('/contact/{contactId?}', 'contactDetails')->name('contact.details');
+        Route::get('/contact/{contactId?}', 'getByid')->name('contact.details');
     });
 });

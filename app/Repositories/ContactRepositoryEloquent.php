@@ -31,4 +31,14 @@ class ContactRepositoryEloquent implements ContactRepository
     {
         return Contact::query()->select($fields)->get()->all();
     }
+
+    /**
+     * Get contact by ID.
+     * @param int $id
+     * @return Contact|null
+     */
+    public function getById(int $id): ?Contact
+    {
+        return Contact::find($id);
+    }
 }

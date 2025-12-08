@@ -1,8 +1,10 @@
 @extends('components.base')
 
-@section('title', 'Save contact')
+@section('title', 'List of contacts')
 
 @section('content')
+
+    <span>{{$message ?? null}}</span>
 
     <h1>Contacts List</h1>
 

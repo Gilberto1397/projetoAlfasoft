@@ -7,6 +7,7 @@ use App\Http\Requests\ContactRequest;
 use App\Repositories\ContactRepositoryEloquent;
 use App\Services\CreateContactService;
 use App\Services\GetAllContactsNamesAndIdsService;
+use App\Services\GetContactByIdService;
 use App\Services\ReturnContactFormService;
 use Illuminate\View\View;
 
@@ -27,8 +28,8 @@ class ContactController extends Controller
         return (new GetAllContactsNamesAndIdsService())->getAllContactsNamesAndIds(New ContactRepositoryEloquent());
     }
 
-    public function contactDetails($contactId = null): View
+    public function getByid($contactId = null): View
     {
-        die($contactId);
+        return (new GetContactByIdService())->getByid(New ContactRepositoryEloquent(), $contactId);
     }
 }
