@@ -4,6 +4,8 @@
 
 @section('content')
 
+    <h1>{{$message ?? null}}</h1>
+
     <fieldset>
         <legend>Create a new contact</legend>
 
