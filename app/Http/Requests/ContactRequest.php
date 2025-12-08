@@ -19,8 +19,8 @@ class ContactRequest extends BaseRequest
     {
         return [
             'name' => 'required|string|min:5|max:255',
-            'email' => 'required|email|max:255',
-            'contact' => 'required|string|min:9|max:9',
+            'email' => 'required|email|max:255|unique:contacts,email',
+            'contact' => 'required|string|min:9|max:9|unique:contacts,contact',
         ];
     }
 
@@ -34,11 +34,13 @@ class ContactRequest extends BaseRequest
             'email.required' => 'The email field is required.',
             'email.email' => 'The email field should be a valid email address.',
             'email.max' => 'The email field should not exceed 255 characters.',
+            'email.unique' => 'The email has already been taken.',
 
             'contact.required' => 'The contact field is required.',
             'contact.string' => 'The contact field should be a valid number without spaces or special characters.',
             'contact.min' => 'The contact field should be at least 9 characters.',
             'contact.max' => 'The contact field should not exceed 9 characters.',
+            'contact.unique' => 'The contact has already been taken.',
         ];
     }
 

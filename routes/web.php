@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/contacts')->group(function () {
     Route::get('/form', [ContactController::class, 'returnContactForm'])->name('contact.return-form');
-    Route::post('', [ContactController::class, 'createContact'])->name('contact.create');
+    Route::post('/form', [ContactController::class, 'createContact'])->name('contact.create');
 });
