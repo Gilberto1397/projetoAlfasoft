@@ -13,7 +13,7 @@ use Illuminate\View\View;
 
 class ContactController extends Controller
 {
-    public function returnContactForm(): View
+    public function returnContactForm($contactId = null): View
     {
         return (new ReturnContactFormService())->returnContactForm();
     }
@@ -31,5 +31,10 @@ class ContactController extends Controller
     public function getByid($contactId = null): View
     {
         return (new GetContactByIdService())->getByid(New ContactRepositoryEloquent(), $contactId);
+    }
+
+    public function updateContact(ContactRequest $request)
+    {
+
     }
 }

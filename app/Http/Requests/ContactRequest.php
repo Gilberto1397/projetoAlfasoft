@@ -18,6 +18,7 @@ class ContactRequest extends BaseRequest
     public function rules(): array
     {
         return [
+            'contactId' => 'integer|exists:contacts,id',
             'name' => 'required|string|min:5|max:255',
             'email' => 'required|email|max:255|unique:contacts,email',
             'contact' => 'required|string|min:9|max:9|unique:contacts,contact',
@@ -27,6 +28,9 @@ class ContactRequest extends BaseRequest
     public function messages()
     {
         return [
+            'contactId.integer' => 'Contact invalid.',
+            'contactId.exists' => 'The specified contact does not exist.',
+
             'name.required' => 'The name field is required.',
             'name.string' => 'The name field should be a valid word.',
             'name.max' => 'The name field should not exceed 255 characters.',

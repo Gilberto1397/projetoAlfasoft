@@ -6,8 +6,8 @@ use Illuminate\View\View;
 
 class ReturnContactFormService
 {
-    public function returnContactForm(): View
+    public function returnContactForm($contactId = null): View
     {
-        return view('contact.contact-form');
+        return view('contact.contact-form', ['contactId' => $contactId]);
     }
 }

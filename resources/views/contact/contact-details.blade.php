@@ -8,5 +8,10 @@
         <p>Name: {{$contact->name}}</p>
         <p>Contact: {{$contact->contact}}</p>
         <p>Email: {{$contact->email}}</p>
+
+        <br>
+        <br>
+
+        <a href="{{route('contact.return-form', [$contact->id])}}">Update contact</a>
     </fieldset>
 @endsection()
