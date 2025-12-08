@@ -22,4 +22,23 @@ class ContactRepositoryEloquent implements ContactRepository
         $contact->contact = $request->contact;
         return $contact->save();
     }
+
+    /**
+     * Get all contacts.
+     * @return Contact[]|array
+     */
+    public function getAll(array $fields = ['*']): array
+    {
+        return Contact::query()->select($fields)->get()->all();
+    }
+
+    /**
+     * Get contact by ID.
+     * @param int $id
+     * @return Contact|null
+     */
+    public function getById(int $id): ?Contact
+    {
+        return Contact::find($id);
+    }
 }
