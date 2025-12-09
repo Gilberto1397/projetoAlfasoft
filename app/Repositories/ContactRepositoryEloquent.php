@@ -59,4 +59,19 @@ class ContactRepositoryEloquent implements ContactRepository
         $contact->contact = $request->contact;
         return $contact->save();
     }
+
+    /**
+     * Delete a contact.
+     * @param int $contactId
+     * @return bool
+     */
+    public function deleteContact(int $contactId): bool
+    {
+        $contact = $this->getById($contactId);
+
+        if ($contact === null) {
+            return false;
+        }
+        return $contact->delete();
+    }
 }

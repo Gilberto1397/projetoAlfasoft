@@ -17,10 +17,10 @@ class UpdateContactService
     public function updateContact(ContactRepository $repository, ContactRequest $request): View
     {
         $returnMsg = 'Contact updated successfully.';
-        $contactSaved = $repository->updateContact($request);
+        $contactUpdated = $repository->updateContact($request);
         $contacts = $repository->getAll(['name', 'id']);
 
-        if (!$contactSaved) {
+        if (!$contactUpdated) {
             $returnMsg = 'An error occurred while update the contact! Please try again.';
             return view(
                 'contact.contact-form',

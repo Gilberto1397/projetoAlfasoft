@@ -18,6 +18,7 @@ class CreateContactService
     {
         $returnMsg = 'Contact saved successfully.';
         $contactSaved = $repository->createContact($request);
+        $contacts = $repository->getAll(['name', 'id']);
 
         if (!$contactSaved) {
             $returnMsg = 'An error occurred while saving the contact! Please try again.';
@@ -31,6 +32,6 @@ class CreateContactService
                 ]
             );
         }
-        return view('contact.list', ['message' => $returnMsg]);
+        return view('contact.list', ['message' => $returnMsg, 'contacts' => $contacts]);
     }
 }

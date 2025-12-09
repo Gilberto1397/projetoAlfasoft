@@ -35,4 +35,11 @@ interface ContactRepository
      * @return bool
      */
     public function updateContact(ContactRequest $request): bool;
+
+    /**
+     * Delete a contact.
+     * @param int $contactId
+     * @return bool
+     */
+    public function deleteContact(int $contactId): bool;
 }

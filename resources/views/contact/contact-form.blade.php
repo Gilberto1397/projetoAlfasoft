@@ -43,6 +43,9 @@
 
                         <br><br>
                         <button type="submit">{{empty($contact->id) ? 'Save Contact' : 'Update Contact'}}</button>
+                        <br>
+                        <br>
+                        <a href="{{route('contact.getall')}}">Go back</a>
                     </form>
     </fieldset>
 
