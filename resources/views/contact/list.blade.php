@@ -26,11 +26,11 @@
                 <span style="margin-bottom: 10px;">Name: <a href="{{route('contact.details', [$contact->id])}}">{{$contact->name}}</a></span>
 
                 <div style="width: 100%; display: flex; column-gap: 30px; justify-content: center; align-items: center;">
-                    <a style="text-decoration: none; font-size: 16px; background-color: #5858e7; color: white; padding: 17px; border-radius: 16px;" href="{{route('contact.return-form', [$contact->id])}}">Update contact</a>
+                    <a style="text-decoration: none; font-size: 16px; background-color: #5858e7; color: white; padding: 17px; border-radius: 16px;" href="{{route('contact.return-form', [$contact->id])}}">Update contact &#9998;</a>
                     <form method="post" action="{{route('contact.delete', [$contact->id])}}">
                         @csrf
                         @method('DELETE')
-                        <input style="text-decoration: none; font-size: 16px; background-color: #e71313; color: white; padding: 17px; border-radius: 16px;" type="submit" value="Delete contact">
+                        <input style="text-decoration: none; font-size: 16px; background-color: #e71313; color: white; padding: 17px; border-radius: 16px;" type="submit" value="Delete contact &#128465;">
                     </form>
                 </div>
             </fieldset>
