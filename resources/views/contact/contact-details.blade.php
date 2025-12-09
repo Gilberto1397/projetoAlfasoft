@@ -13,5 +13,8 @@
         <br>
 
         <a href="{{route('contact.return-form', [$contact->id])}}">Update contact</a>
+        <br>
+        <br>
+        <a href="{{route('contact.getall')}}">Go back</a>
     </fieldset>
 @endsection()
