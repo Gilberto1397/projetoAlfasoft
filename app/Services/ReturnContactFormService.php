@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Contracts\ContactRepository;
 use Illuminate\View\View;
 
 class ReturnContactFormService
 {
-    public function returnContactForm($contactId = null): View
+    public function returnContactForm(ContactRepository $repository, $contactId = null): View
     {
-        return view('contact.contact-form', ['contactId' => $contactId]);
+        return view('contact.contact-form', ['contact' => $repository->getById($contactId)]);
     }
 }

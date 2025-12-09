@@ -6,21 +6,22 @@ use App\Contracts\ContactRepository;
 use App\Http\Requests\ContactRequest;
 use Illuminate\View\View;
 
-class CreateContactService
+class UpdateContactService
 {
     /**
-     * Tries to create a new contact.
+     * Tries to update a contact.
      * @param ContactRepository $repository
      * @param ContactRequest $request
      * @return View
      */
-    public function createContact(ContactRepository $repository, ContactRequest $request): View
+    public function updateContact(ContactRepository $repository, ContactRequest $request): View
     {
-        $returnMsg = 'Contact saved successfully.';
-        $contactSaved = $repository->createContact($request);
+        $returnMsg = 'Contact updated successfully.';
+        $contactSaved = $repository->updateContact($request);
+        $contacts = $repository->getAll(['name', 'id']);
 
         if (!$contactSaved) {
-            $returnMsg = 'An error occurred while saving the contact! Please try again.';
+            $returnMsg = 'An error occurred while update the contact! Please try again.';
             return view(
                 'contact.contact-form',
                 [
@@ -31,6 +32,6 @@ class CreateContactService
                 ]
             );
         }
-        return view('contact.list', ['message' => $returnMsg]);
+        return view('contact.list', ['message' => $returnMsg, 'contacts' => $contacts]);
     }
 }

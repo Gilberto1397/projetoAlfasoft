@@ -3,10 +3,13 @@
 namespace App\Http\Requests;
 
 /*
+ * @property int|null $contactId
  * @property string $name
  * @property string $email
  * @property string $contact
  */
+
+use Illuminate\Validation\Rule;
 
 class ContactRequest extends BaseRequest
 {
@@ -20,8 +23,8 @@ class ContactRequest extends BaseRequest
         return [
             'contactId' => 'integer|exists:contacts,id',
             'name' => 'required|string|min:5|max:255',
-            'email' => 'required|email|max:255|unique:contacts,email',
-            'contact' => 'required|string|min:9|max:9|unique:contacts,contact',
+            'email' => ['required', 'email', 'max:255', Rule::unique('contacts', 'email')->ignore($this->contactId)],
+            'contact' => ['required', 'string', 'min:9', 'max:9', Rule::unique('contacts', 'contact')->ignore($this->contactId)],
         ];
     }
 

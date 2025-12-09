@@ -9,13 +9,14 @@ use App\Services\CreateContactService;
 use App\Services\GetAllContactsNamesAndIdsService;
 use App\Services\GetContactByIdService;
 use App\Services\ReturnContactFormService;
+use App\Services\UpdateContactService;
 use Illuminate\View\View;
 
 class ContactController extends Controller
 {
     public function returnContactForm($contactId = null): View
     {
-        return (new ReturnContactFormService())->returnContactForm();
+        return (new ReturnContactFormService())->returnContactForm(New ContactRepositoryEloquent(), $contactId);
     }
 
     public function createContact(ContactRequest $request): View
@@ -33,8 +34,8 @@ class ContactController extends Controller
         return (new GetContactByIdService())->getByid(New ContactRepositoryEloquent(), $contactId);
     }
 
-    public function updateContact(ContactRequest $request)
+    public function updateContact(ContactRequest $request): View
     {
-
+        return (new UpdateContactService())->updateContact(New ContactRepositoryEloquent(), $request);
     }
 }

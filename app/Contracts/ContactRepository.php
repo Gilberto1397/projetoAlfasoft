@@ -28,4 +28,11 @@ interface ContactRepository
      * @return Contact|null
      */
     public function getById(int $id): ?Contact;
+
+    /**
+     * Update a contact.
+     * @param ContactRequest $request
+     * @return bool
+     */
+    public function updateContact(ContactRequest $request): bool;
 }
