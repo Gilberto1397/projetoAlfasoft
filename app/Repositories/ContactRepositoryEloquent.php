@@ -41,4 +41,22 @@ class ContactRepositoryEloquent implements ContactRepository
     {
         return Contact::find($id);
     }
+
+    /**
+     * Update a contact.
+     * @param ContactRequest $request
+     * @return bool
+     */
+    public function updateContact(ContactRequest $request): bool
+    {
+        $contact = $this->getById($request->contactId);
+
+        if ($contact === null) {
+            return false;
+        }
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->contact = $request->contact;
+        return $contact->save();
+    }
 }

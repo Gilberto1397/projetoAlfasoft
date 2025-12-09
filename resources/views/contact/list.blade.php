@@ -17,6 +17,9 @@
         <fieldset>
             <legend>Contact {{$contact->id}}</legend>
             <a href="{{route('contact.details', [$contact->id])}}">Name: {{$contact->name}}</a>
+            <br>
+            <br>
+            <a href="{{route('contact.return-form', [$contact->id])}}">Update contact</a>
         </fieldset>
     @endforeach
 
