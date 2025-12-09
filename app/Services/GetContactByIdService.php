@@ -19,9 +19,10 @@ class GetContactByIdService
             return view('contact.list', ['message' => 'Contact not found.']);
         }
         $contact = $contactRepository->getById($contactId);
+        $contacts = $contactRepository->getAll(['name', 'id']);
 
         if ($contact === null) {
-            return view('contact.list', ['message' => 'Contact not found.']);
+            return view('contact.list', ['message' => 'Contact not found.', 'contacts' => $contacts]);
         }
         return view('contact.contact-details', ['contact' => $contact]);
     }

@@ -13,6 +13,11 @@
         <a href="{{route('contact.return-form')}}">Would you like to add one?</a>
     @endif
 
+    <a href="{{route('contact.return-form')}}">New Contact +</a>
+
+    <br>
+    <br>
+
     @foreach($contacts as $contact)
         <fieldset>
             <legend>Contact {{$contact->id}}</legend>
@@ -20,6 +25,13 @@
             <br>
             <br>
             <a href="{{route('contact.return-form', [$contact->id])}}">Update contact</a>
+            <br>
+            <br>
+            <form method="post" action="{{route('contact.delete', [$contact->id])}}">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Delete contact">
+            </form>
         </fieldset>
     @endforeach
 

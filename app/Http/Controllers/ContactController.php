@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Repositories\ContactRepositoryEloquent;
 use App\Services\CreateContactService;
+use App\Services\DeleteContactService;
 use App\Services\GetAllContactsNamesAndIdsService;
 use App\Services\GetContactByIdService;
 use App\Services\ReturnContactFormService;
@@ -37,5 +38,10 @@ class ContactController extends Controller
     public function updateContact(ContactRequest $request): View
     {
         return (new UpdateContactService())->updateContact(New ContactRepositoryEloquent(), $request);
+    }
+
+    public function deleteContact($contactId = null): View
+    {
+        return (new DeleteContactService())->deleteContact(New ContactRepositoryEloquent(), $contactId);
     }
 }
