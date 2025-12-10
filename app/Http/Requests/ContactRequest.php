@@ -35,18 +35,19 @@ class ContactRequest extends BaseRequest
             'contactId.exists' => 'The specified contact does not exist.',
 
             'name.required' => 'The name field is required.',
-            'name.string' => 'The name field should be a valid word.',
-            'name.max' => 'The name field should not exceed 255 characters.',
+            'name.string' => 'The name field must be a string.',
+            'name.max' => 'The name field must not be greater than 255 characters.',
+            'name.min' => 'The name field must be at least 5 characters.',
 
             'email.required' => 'The email field is required.',
-            'email.email' => 'The email field should be a valid email address.',
-            'email.max' => 'The email field should not exceed 255 characters.',
+            'email.email' => 'The email field must be a valid email address.',
+            'email.max' => 'The email field must be a valid email address.',
             'email.unique' => 'The email has already been taken.',
 
             'contact.required' => 'The contact field is required.',
-            'contact.string' => 'The contact field should be a valid number without spaces or special characters.',
-            'contact.min' => 'The contact field should be at least 9 characters.',
-            'contact.max' => 'The contact field should not exceed 9 characters.',
+            'contact.string' => 'The contact field must be at least 9 characters.',
+            'contact.min' => 'The contact field must be at least 9 characters.',
+            'contact.max' => 'The contact field must not be greater than 9 characters.',
             'contact.unique' => 'The contact has already been taken.',
         ];
     }
